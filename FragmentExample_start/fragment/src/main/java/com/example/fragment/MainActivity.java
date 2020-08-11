@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // This is mandatory, even if you use viewBinding or dataBinding!
 
         mButton = findViewById(R.id.open_button);
 
@@ -67,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
         // val fragmentTransaction = fragmentManager.beginTransaction()
 
         // adds a new Fragment using the add() transaction method
-        // 1st argument is the layout resource for the ViewGroup in which the Fragment is placed
+        // 1st argument is the an Int, so input the R.id for the ViewGroup in which the Fragment is placed
         // 2nd argument is the fragment
         fragmentTransaction.add(
                 R.id.fragment_container,
@@ -95,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
             // get an instance of FragmentTransaction that uses beginTransaction()
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             // create and commit the transaction to remove the fragment.
-            // Why don't you remove the container???
+            // Why don't you remove the container? ANS:
             fragmentTransaction.remove(simpleFragment).commit();
         }
         // Update the Button text.
